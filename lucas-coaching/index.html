@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lucas Coaching</title>
+<meta name="description" content="Lucas Coaching — coach sportif diplômé STAPS. Accompagnement premium, sur mesure, pour changer durablement.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --bone:#F7F3EE;       /* blanc cassé */
+  --bone-2:#EFE8E0;
+  --ink:#1D1614;
+  --ink-soft:#5E524D;
+  --red:#C3172E;        /* rouge carmin */
+  --coral:#E9573D;
+  --peach:#F5B896;
+  --grad: linear-gradient(120deg,var(--red) 0%,var(--coral) 55%,var(--peach) 100%);
+  --serif:"Instrument Serif","Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gutter:clamp(16px,5vw,72px);
+  --section:clamp(120px,18vh,220px);
+  --ease:cubic-bezier(.22,.61,.12,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--red);color:var(--bone)}
+:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+
+.eyebrow{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.eyebrow b{color:var(--red);font-weight:500}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
+em{font-style:italic}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- NAV ---------- */
+.nav{position:absolute;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;
+  padding:calc(env(safe-area-inset-top,0px) + 28px) var(--gutter) 0}
+.mark{font:400 22px/1 var(--serif);text-decoration:none;letter-spacing:.01em}
+.mark span{color:var(--red)}
+.nav-links{display:flex;gap:36px;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.nav-links a{text-decoration:none;color:var(--ink-soft);transition:color .4s}
+.nav-links a:hover{color:var(--red)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:end center;overflow:hidden;
+  padding-inline:var(--gutter);isolation:isolate}
+.hero::before{ /* lumière chaude qui sculpte */
+  content:"";position:absolute;z-index:-2;left:50%;top:58%;width:min(1100px,140vw);aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(closest-side,rgba(245,184,150,.95),rgba(233,87,61,.38) 48%,rgba(195,23,46,.08) 72%,transparent 100%);
+  filter:blur(8px);animation:breathe 12s ease-in-out infinite alternate}
+.hero::after{ /* sol */
+  content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:22%;
+  background:linear-gradient(to top,var(--bone) 12%,transparent)}
+@keyframes breathe{from{transform:translate(-50%,-50%) scale(.96);opacity:.85}to{transform:translate(-50%,-50%) scale(1.04);opacity:1}}
+
+.hero-word{position:absolute;z-index:-1;left:0;right:0;top:50%;transform:translateY(-62%);
+  display:flex;justify-content:center;align-items:baseline;gap:calc(min(86svh,1100px) * .36);padding-inline:var(--gutter);pointer-events:none}
+.hero-word span{font:400 clamp(64px,11vw,220px)/.8 var(--serif);letter-spacing:-.035em;color:var(--ink)}
+.hero-word span:last-child{font-style:italic}
+.hero-word span{animation:rise 1.8s var(--ease) both}
+.hero-word span:last-child{animation-delay:.15s}
+
+.coach{position:relative;height:min(86svh,1100px);max-width:92vw;margin-top:120px;filter:drop-shadow(0 40px 60px rgba(120,30,20,.18));
+  animation:rise 2.2s .2s var(--ease) both}
+.coach img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 78%,transparent 100%)}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.hero-word span{animation-name:rise-word}
+@keyframes rise-word{from{opacity:0;letter-spacing:.02em}to{opacity:1;letter-spacing:-.035em}}
+
+.hero-foot{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 40px);z-index:2;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding-inline:var(--gutter);
+  animation:rise 1.6s .9s var(--ease) both}
+.tagline{font:italic 400 clamp(26px,3vw,40px)/1.1 var(--serif);max-width:14ch}
+.tagline .grad-text{font-style:italic}
+.cred{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);text-align:right;line-height:1.9}
+
+.btn{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font:500 13px/1 var(--sans);
+  letter-spacing:.16em;text-transform:uppercase;padding:16px 0;border-bottom:1px solid currentColor;transition:gap .5s var(--ease),color .4s}
+.btn:hover{gap:22px;color:var(--red)}
+.btn svg{width:18px;height:18px}
+
+/* ---------- SECTIONS ---------- */
+section{padding-inline:var(--gutter)}
+.wrap{max-width:1280px;margin-inline:auto}
+.coaching{padding-block:var(--section)}
+.coaching .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,8vw,140px);align-items:center}
+.frame{position:relative}
+.frame img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:40% 20%;border-radius:2px}
+.frame::after{content:"";position:absolute;inset:auto -18px -18px auto;width:42%;aspect-ratio:1;background:var(--grad);z-index:-1;opacity:.9}
+.frame figcaption{margin-top:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.coaching h2{font-size:clamp(44px,5.6vw,84px);line-height:.98;margin-block:28px 36px}
+.coaching p{max-width:44ch;color:var(--ink-soft);margin:0 0 22px}
+.coaching p strong{color:var(--ink);font-weight:500}
+.facts{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(29,22,20,.12)}
+.facts div{display:grid;gap:4px}
+.facts dt{font:400 34px/1 var(--serif)}
+.facts dd{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- LES NOTES ---------- */
+.notes{padding-block:0 var(--section)}
+.notes-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(56px,8vw,96px)}
+.notes-head h2{font-size:clamp(40px,4.6vw,68px);line-height:1}
+.notes-head p{max-width:34ch;color:var(--ink-soft);margin:0}
+.notes-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.note{padding:8px clamp(24px,3.4vw,56px) 12px}
+.note:first-child{padding-left:0}.note:last-child{padding-right:0}
+.note + .note{border-left:1px solid var(--red)}
+.note .k{font:italic 400 clamp(56px,6vw,96px)/.9 var(--serif);display:block;margin-bottom:28px}
+.note .k::first-letter{color:var(--red)}
+.note h3{font:500 13px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.note p{margin:0;color:var(--ink-soft);max-width:32ch}
+
+/* ---------- IMMERSIVE ---------- */
+.immersive{position:relative;min-height:100svh;padding:0;display:grid;align-items:center;overflow:hidden;color:var(--bone);isolation:isolate}
+.immersive img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:62% 30%;z-index:-2;will-change:transform}
+.immersive::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(40,10,8,.78) 0%,rgba(90,20,15,.45) 42%,rgba(195,23,46,.05) 75%),
+             linear-gradient(to top,rgba(20,8,6,.5),transparent 40%)}
+.immersive blockquote{margin:0;padding-inline:var(--gutter);max-width:min(900px,100%)}
+.immersive q{display:block;quotes:none;font:400 clamp(48px,7.2vw,124px)/.95 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+.immersive q em{color:var(--peach)}
+.immersive cite{display:block;margin-top:40px;font:500 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;font-style:normal;opacity:.8}
+
+/* ---------- FINAL ---------- */
+.final{padding-block:var(--section) calc(var(--section) * .7);text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.final::before{content:"";position:absolute;z-index:-1;left:50%;top:44%;width:min(900px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);
+  background:radial-gradient(closest-side,rgba(245,184,150,.55),rgba(233,87,61,.12) 60%,transparent);border-radius:50%}
+.final h2{font-size:clamp(52px,8vw,132px);line-height:.92;margin-block:28px 32px}
+.final p{max-width:48ch;margin:0 auto 56px;color:var(--ink-soft)}
+.cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+.pill{display:inline-flex;align-items:center;gap:12px;padding:20px 34px;border-radius:999px;text-decoration:none;
+  font:500 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s}
+.pill.primary{background:var(--grad);color:#fff;box-shadow:0 18px 40px -16px rgba(195,23,46,.55)}
+.pill.primary:hover{transform:translateY(-2px);box-shadow:0 26px 50px -18px rgba(195,23,46,.7)}
+.pill.ghost{border:1px solid rgba(29,22,20,.25)}
+.pill.ghost:hover{border-color:var(--red);color:var(--red)}
+.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:48px;font-size:13px;color:var(--ink-soft)}
+.steps span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:middle}
+
+footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid rgba(29,22,20,.1)}
+
+/* reveal: visible at rest, only enhanced when JS runs */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .nav-links{display:none}
+  .hero-word{top:calc(env(safe-area-inset-top,0px) + 84px);transform:none;flex-direction:column;align-items:flex-start;gap:0}
+  .hero-word span{font-size:clamp(64px,24vw,140px)}
+  .hero-word span:last-child{align-self:flex-end}
+  .coach{height:min(52svh,540px);margin-top:300px}
+  .tagline{max-width:none}
+  .hero-foot{flex-direction:column;align-items:flex-start;bottom:24px}
+  .cred{text-align:left}
+  .coaching .wrap{grid-template-columns:1fr}
+  .notes-grid{grid-template-columns:1fr}
+  .note,.note:first-child,.note:last-child{padding:36px 0}
+  .note + .note{border-left:0;border-top:1px solid var(--red)}
+  .immersive::before{background:linear-gradient(to top,rgba(40,10,8,.85),rgba(90,20,15,.35) 60%,rgba(0,0,0,.1))}
+  .immersive{align-items:end;padding-bottom:72px}
+}
+@media (max-width:860px){ .hero{padding-bottom:210px} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <a class="mark" href="#top">Lucas<span>.</span></a>
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a href="#coaching">Le coaching</a>
+    <a href="#notes">L'approche</a>
+    <a href="#rdv">Rendez-vous</a>
+  </nav>
+</header>
+
+<main id="top">
+  <!-- 1. HERO -->
+  <section class="hero" aria-label="Lucas Coaching">
+    <h1 class="hero-word" aria-label="Lucas Coaching"><span>Lucas</span><span>Coaching</span></h1>
+    <figure class="coach" style="margin:0">
+      <img src="assets/coach-hero.webp" alt="Lucas, coach sportif diplômé STAPS, bras croisés, souriant" width="1100" height="2895" fetchpriority="high">
+    </figure>
+    <div class="hero-foot">
+      <div>
+        <p class="tagline" style="margin:0 0 18px">Changeons <span class="grad-text">ensemble</span> votre vie.</p>
+        <a class="btn" href="#rdv">Réserver un appel
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <p class="cred" style="margin:0">Coach sportif diplômé STAPS<br>Accompagnement individuel</p>
+    </div>
+  </section>
+
+  <!-- 2. LE COACHING -->
+  <section class="coaching" id="coaching">
+    <div class="wrap">
+      <figure class="frame reveal" style="margin:0">
+        <img src="assets/coach-track.webp" alt="Lucas sur la piste d'athlétisme, souriant après une séance" width="1000" height="1010" loading="lazy">
+        <figcaption>Sur la piste — séance de fractionné</figcaption>
+      </figure>
+      <div class="reveal">
+        <p class="eyebrow"><b>—</b>&nbsp; Le coaching</p>
+        <h2>On ne change pas seul. <em class="grad-text">On change accompagné.</em></h2>
+        <p>La motivation s'use. Ce qui reste, c'est <strong>un cadre, un regard, une personne qui ne lâche pas</strong>. Mon rôle : construire avec vous une méthode qui tient dans votre vraie vie — votre agenda, votre corps, votre histoire.</p>
+        <p>Bilan initial, programme sur mesure, ajustements chaque semaine. Rien de générique, tout est pensé pour vous — et pour durer.</p>
+        <dl class="facts">
+          <div><dt>STAPS</dt><dd>Licence en sciences du sport</dd></div>
+          <div><dt>1 : 1</dt><dd>Suivi individuel</dd></div>
+          <div><dt>7 j / 7</dt><dd>Échanges &amp; ajustements</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. LES NOTES -->
+  <section class="notes" id="notes">
+    <div class="wrap">
+      <div class="notes-head reveal">
+        <div>
+          <p class="eyebrow"><b>—</b>&nbsp; Les trois notes</p>
+          <h2 style="margin-top:24px">Un parfum qui <em>reste</em>.</h2>
+        </div>
+        <p>Comme un grand parfum, une transformation se construit en trois notes. Chacune compte. Aucune ne suffit seule.</p>
+      </div>
+      <div class="notes-grid">
+        <article class="note reveal">
+          <span class="k">Tête</span>
+          <h3>L'élan des premières semaines</h3>
+          <p>Des objectifs clairs, des victoires rapides et mesurables. Vous sentez la différence dès le premier mois — et l'envie de continuer s'installe.</p>
+        </article>
+        <article class="note reveal">
+          <span class="k">Cœur</span>
+          <h3>La relation qui vous porte</h3>
+          <p>Un coach qui vous connaît, vous écoute et s'adapte. Les jours sans, on ajuste. Les jours avec, on pousse. Vous n'êtes jamais seul.</p>
+        </article>
+        <article class="note reveal">
+          <span class="k">Fond</span>
+          <h3>Ce qui demeure, pour toujours</h3>
+          <p>Des habitudes solides, un corps qui a appris, une autonomie gagnée. Le vrai résultat, c'est celui qui dure après le suivi.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. IMMERSIVE -->
+  <section class="immersive" aria-label="Citation">
+    <img src="assets/coach-focus.webp" alt="" width="2000" height="1333" decoding="async" data-parallax>
+    <blockquote class="reveal">
+      <q>La discipline est la plus belle <em>preuve d'amour</em> que l'on se fait.</q>
+      <cite>— Lucas, coach</cite>
+    </blockquote>
+  </section>
+
+  <!-- 5. FINAL -->
+  <section class="final" id="rdv">
+    <div class="wrap reveal">
+      <p class="eyebrow"><b>—</b>&nbsp; Première étape</p>
+      <h2>Votre histoire<br><em class="grad-text">commence ici.</em></h2>
+      <p>Réservez un premier échange offert de 30 minutes, ou remplissez le questionnaire : je reviens vers vous sous 24 h avec une première lecture de votre situation.</p>
+      <div class="cta-row">
+        <!-- Remplacer les liens ci-dessous par l'URL de prise de rendez-vous et celle du questionnaire -->
+        <a class="pill primary" id="cta-rdv" href="#rdv" data-href="URL_PRISE_DE_RDV">Prendre rendez-vous
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="pill ghost" id="cta-form" href="#rdv" data-href="URL_QUESTIONNAIRE">Remplir le questionnaire</a>
+      </div>
+      <div class="steps"><span>Appel découverte offert</span><span>Bilan complet</span><span>Programme sur mesure</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© Lucas Coaching</span>
+  <span>Coach sportif diplômé STAPS</span>
+</footer>
+
+<script>
+(function(){
+  // Liens rendez-vous / questionnaire : renseigner data-href avec les vraies URLs
+  document.querySelectorAll('[data-href]').forEach(function(a){
+    var u=a.getAttribute('data-href'); if(/^https?:\/\//.test(u)){a.href=u;a.target='_blank';a.rel='noopener';}
+  });
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!('IntersectionObserver' in window)||reduce) return;
+  document.documentElement.classList.add('js');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(el.classList.contains('note')?(i%3)*0.18:0)+'s';io.observe(el);});
+  // parallax lent sur la section immersive
+  var img=document.querySelector('[data-parallax]'); if(!img) return;
+  var sec=img.parentElement, ticking=false;
+  function upd(){var r=sec.getBoundingClientRect(),h=window.innerHeight;
+    if(r.bottom>0&&r.top<h){var p=(r.top+r.height/2-h/2)/h;img.style.transform='translate3d(0,'+(p*-6)+'%,0) scale(1.04)';}ticking=false;}
+  window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(upd);ticking=true;}},{passive:true}); upd();
+})();
+</script>
+</body>
+</html>
