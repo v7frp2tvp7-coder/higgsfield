@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lucas Coaching</title>
-<meta name="description" content="Lucas Coaching — coach sportif diplômé STAPS. Accompagnement premium, sur mesure, pour changer durablement.">
+<meta name="description" content="Lucas Coaching, coach sportif diplômé STAPS. Accompagnement premium, sur mesure, pour changer durablement.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@300;400;500;600&display=swap">
@@ -34,12 +34,13 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--red);outline-offset:4px}
 
 .eyebrow{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
-.eyebrow b{color:var(--red);font-weight:500}
+.eyebrow{display:flex;align-items:center;gap:12px}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--grad);flex:none}
 h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;text-wrap:balance;letter-spacing:-.01em}
 em{font-style:italic}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-/* ---------- NAV ---------- */
+/* NAV */
 .nav{position:absolute;inset:0 0 auto 0;z-index:10;display:flex;justify-content:space-between;align-items:center;
   padding:calc(env(safe-area-inset-top,0px) + 28px) var(--gutter) 0}
 .mark{font:400 22px/1 var(--serif);text-decoration:none;letter-spacing:.01em}
@@ -48,31 +49,33 @@ em{font-style:italic}
 .nav-links a{text-decoration:none;color:var(--ink-soft);transition:color .4s}
 .nav-links a:hover{color:var(--red)}
 
-/* ---------- HERO ---------- */
+/* HERO */
 .hero{position:relative;min-height:100svh;display:grid;place-items:end center;overflow:hidden;
   padding-inline:var(--gutter);isolation:isolate}
 .hero::before{ /* lumière chaude qui sculpte */
   content:"";position:absolute;z-index:-2;left:50%;top:58%;width:min(1100px,140vw);aspect-ratio:1;
   transform:translate(-50%,-50%);border-radius:50%;
-  background:radial-gradient(closest-side,rgba(245,184,150,.95),rgba(233,87,61,.38) 48%,rgba(195,23,46,.08) 72%,transparent 100%);
+  background:radial-gradient(closest-side,rgba(255,214,186,1),rgba(245,150,110,.75) 36%,rgba(233,87,61,.42) 58%,rgba(195,23,46,.12) 80%,transparent 100%);
   filter:blur(8px);animation:breathe 12s ease-in-out infinite alternate}
+.hero .blob{position:absolute;z-index:-2;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none}
+.blob.b1{width:34vw;aspect-ratio:1;left:-18vw;bottom:-18vw;background:var(--red);opacity:.4}
+.blob.b2{width:30vw;aspect-ratio:1;right:-8vw;top:-8vw;background:var(--peach)}
 .hero::after{ /* sol */
   content:"";position:absolute;z-index:-1;left:0;right:0;bottom:0;height:22%;
   background:linear-gradient(to top,var(--bone) 12%,transparent)}
 @keyframes breathe{from{transform:translate(-50%,-50%) scale(.96);opacity:.85}to{transform:translate(-50%,-50%) scale(1.04);opacity:1}}
 
-.hero-word{position:absolute;z-index:-1;left:0;right:0;top:50%;transform:translateY(-62%);
-  display:flex;justify-content:center;align-items:baseline;gap:calc(min(86svh,1100px) * .36);padding-inline:var(--gutter);pointer-events:none}
-.hero-word span{font:400 clamp(64px,11vw,220px)/.8 var(--serif);letter-spacing:-.035em;color:var(--ink)}
-.hero-word span:last-child{font-style:italic}
-.hero-word span{animation:rise 1.8s var(--ease) both}
-.hero-word span:last-child{animation-delay:.15s}
+.hero-word{position:absolute;inset:0;margin:0;pointer-events:none}
+.hero-word span{position:absolute;font:400 clamp(72px,13.5vw,260px)/.8 var(--serif);letter-spacing:-.035em;animation:rise-word 1.8s var(--ease) both}
+/* « Lucas » passe derrière la photo, « Coaching » devant */
+.w-lucas{z-index:-1;top:22%;right:calc(50% + 5vw);color:var(--ink)}
+.w-coaching{z-index:3;top:50%;left:calc(50% - 16vw);font-style:italic;background:linear-gradient(90deg,var(--red) 0%,var(--coral) 24%,#FFD6BE 47%,var(--peach) 56%,var(--coral) 72%,var(--red) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 10px 30px rgba(120,20,15,.28));animation-delay:.25s!important}
 
-.coach{position:relative;height:min(86svh,1100px);max-width:92vw;margin-top:120px;filter:drop-shadow(0 40px 60px rgba(120,30,20,.18));
+.coach{position:relative;z-index:1;height:min(calc(100svh - 56px),1300px);max-width:96vw;margin:56px 0 0;filter:drop-shadow(0 40px 60px rgba(120,30,20,.18));
   animation:rise 2.2s .2s var(--ease) both}
-.coach img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(to bottom,#000 78%,transparent 100%);mask-image:linear-gradient(to bottom,#000 78%,transparent 100%)}
+.coach img{height:100%;width:auto;max-width:100%;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 97%);mask-image:linear-gradient(to bottom,#000 72%,transparent 97%)}
 @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
-.hero-word span{animation-name:rise-word}
 @keyframes rise-word{from{opacity:0;letter-spacing:.02em}to{opacity:1;letter-spacing:-.035em}}
 
 .hero-foot{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 40px);z-index:2;
@@ -87,25 +90,34 @@ em{font-style:italic}
 .btn:hover{gap:22px;color:var(--red)}
 .btn svg{width:18px;height:18px}
 
-/* ---------- SECTIONS ---------- */
+/* RUBAN */
+.ribbon{background:var(--grad);color:var(--bone);overflow:hidden;padding-block:22px;padding-inline:0}
+.ribbon-track{display:flex;width:max-content;animation:slide 48s linear infinite}
+.ribbon-track span{display:flex;align-items:center;gap:40px;padding-right:40px;font:italic 400 clamp(26px,3vw,40px)/1 var(--serif);white-space:nowrap}
+.ribbon-track i{width:8px;height:8px;border-radius:50%;background:var(--bone);opacity:.8}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
 section{padding-inline:var(--gutter)}
 .wrap{max-width:1280px;margin-inline:auto}
 .coaching{padding-block:var(--section)}
+.coaching .frame{isolation:isolate}
 .coaching .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,8vw,140px);align-items:center}
 .frame{position:relative}
 .frame img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:40% 20%;border-radius:2px}
-.frame::after{content:"";position:absolute;inset:auto -18px -18px auto;width:42%;aspect-ratio:1;background:var(--grad);z-index:-1;opacity:.9}
+.frame::after{content:"";position:absolute;inset:auto -22px -22px auto;width:48%;aspect-ratio:1;background:var(--grad);z-index:-1}
+.frame::before{content:"";position:absolute;inset:-22px auto auto -22px;width:28%;aspect-ratio:1;background:var(--peach);opacity:.6;z-index:-1;border-radius:50%}
 .frame figcaption{margin-top:18px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
 .coaching h2{font-size:clamp(44px,5.6vw,84px);line-height:.98;margin-block:28px 36px}
 .coaching p{max-width:44ch;color:var(--ink-soft);margin:0 0 22px}
 .coaching p strong{color:var(--ink);font-weight:500}
 .facts{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(29,22,20,.12)}
 .facts div{display:grid;gap:4px}
-.facts dt{font:400 34px/1 var(--serif)}
+.facts dt{font:400 38px/1 var(--serif);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;justify-self:start;padding-right:.06em}
 .facts dd{margin:0;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 
-/* ---------- LES NOTES ---------- */
-.notes{padding-block:0 var(--section)}
+/* LES NOTES */
+.notes{padding-block:clamp(96px,14vh,160px);margin-bottom:var(--section);background:linear-gradient(170deg,#FBE1D3 0%,#FCEDE4 45%,var(--bone) 100%)}
 .notes-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(56px,8vw,96px)}
 .notes-head h2{font-size:clamp(40px,4.6vw,68px);line-height:1}
 .notes-head p{max-width:34ch;color:var(--ink-soft);margin:0}
@@ -113,40 +125,42 @@ section{padding-inline:var(--gutter)}
 .note{padding:8px clamp(24px,3.4vw,56px) 12px}
 .note:first-child{padding-left:0}.note:last-child{padding-right:0}
 .note + .note{border-left:1px solid var(--red)}
-.note .k{font:italic 400 clamp(56px,6vw,96px)/.9 var(--serif);display:block;margin-bottom:28px}
-.note .k::first-letter{color:var(--red)}
+.note .k{font:italic 400 clamp(56px,6vw,96px)/1 var(--serif);display:inline-block;margin-bottom:24px;padding-right:.08em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .note h3{font:500 13px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
 .note p{margin:0;color:var(--ink-soft);max-width:32ch}
 
-/* ---------- IMMERSIVE ---------- */
+/* IMMERSIVE */
 .immersive{position:relative;min-height:100svh;padding:0;display:grid;align-items:center;overflow:hidden;color:var(--bone);isolation:isolate}
 .immersive img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;object-position:62% 30%;z-index:-2;will-change:transform}
 .immersive::before{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(40,10,8,.78) 0%,rgba(90,20,15,.45) 42%,rgba(195,23,46,.05) 75%),
+  background:linear-gradient(90deg,rgba(90,8,20,.86) 0%,rgba(195,23,46,.5) 42%,rgba(233,87,61,.12) 75%),
              linear-gradient(to top,rgba(20,8,6,.5),transparent 40%)}
 .immersive blockquote{margin:0;padding-inline:var(--gutter);max-width:min(900px,100%)}
 .immersive q{display:block;quotes:none;font:400 clamp(48px,7.2vw,124px)/.95 var(--serif);letter-spacing:-.02em;text-wrap:balance}
 .immersive q em{color:var(--peach)}
 .immersive cite{display:block;margin-top:40px;font:500 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;font-style:normal;opacity:.8}
 
-/* ---------- FINAL ---------- */
-.final{padding-block:var(--section) calc(var(--section) * .7);text-align:center;position:relative;overflow:hidden;isolation:isolate}
+/* FINAL */
+.final{padding-block:var(--section);text-align:center;position:relative;overflow:hidden;isolation:isolate;background:var(--grad);color:var(--bone)}
+.final .eyebrow{color:rgba(247,243,238,.85);justify-content:center}
+.final .eyebrow .dot{background:var(--bone)}
 .final::before{content:"";position:absolute;z-index:-1;left:50%;top:44%;width:min(900px,130vw);aspect-ratio:1;transform:translate(-50%,-50%);
-  background:radial-gradient(closest-side,rgba(245,184,150,.55),rgba(233,87,61,.12) 60%,transparent);border-radius:50%}
+  background:radial-gradient(closest-side,rgba(255,226,206,.45),rgba(255,226,206,.08) 60%,transparent);border-radius:50%}
 .final h2{font-size:clamp(52px,8vw,132px);line-height:.92;margin-block:28px 32px}
-.final p{max-width:48ch;margin:0 auto 56px;color:var(--ink-soft)}
+.final p{max-width:48ch;margin:0 auto 56px;color:rgba(247,243,238,.9)}
+.final h2 em{color:#FFE3D3}
 .cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
 .pill{display:inline-flex;align-items:center;gap:12px;padding:20px 34px;border-radius:999px;text-decoration:none;
   font:500 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s}
-.pill.primary{background:var(--grad);color:#fff;box-shadow:0 18px 40px -16px rgba(195,23,46,.55)}
-.pill.primary:hover{transform:translateY(-2px);box-shadow:0 26px 50px -18px rgba(195,23,46,.7)}
-.pill.ghost{border:1px solid rgba(29,22,20,.25)}
-.pill.ghost:hover{border-color:var(--red);color:var(--red)}
-.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:48px;font-size:13px;color:var(--ink-soft)}
-.steps span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:middle}
+.pill.primary{background:var(--bone);color:var(--red);box-shadow:0 18px 40px -16px rgba(90,8,20,.6)}
+.pill.primary:hover{transform:translateY(-2px);box-shadow:0 26px 50px -18px rgba(90,8,20,.75)}
+.pill.ghost{border:1px solid rgba(247,243,238,.6);color:var(--bone)}
+.pill.ghost:hover{background:rgba(247,243,238,.12);border-color:var(--bone)}
+.steps{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:48px;font-size:13px;color:rgba(247,243,238,.9)}
+.steps span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--bone);margin-right:10px;vertical-align:middle}
 
-footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
-  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);border-top:1px solid rgba(29,22,20,.1)}
+footer{background:var(--ink);color:rgba(247,243,238,.7);padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 
 /* reveal: visible at rest, only enhanced when JS runs */
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity 1.4s var(--ease),transform 1.4s var(--ease)}
@@ -154,10 +168,12 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
 
 @media (max-width:860px){
   .nav-links{display:none}
-  .hero-word{top:calc(env(safe-area-inset-top,0px) + 84px);transform:none;flex-direction:column;align-items:flex-start;gap:0}
-  .hero-word span{font-size:clamp(64px,24vw,140px)}
-  .hero-word span:last-child{align-self:flex-end}
-  .coach{height:min(52svh,540px);margin-top:300px}
+  .hero-word span{font-size:clamp(64px,23vw,140px)}
+  .w-lucas{top:calc(env(safe-area-inset-top,0px) + 70px);right:auto;left:var(--gutter)}
+  .mark{visibility:hidden}
+  .w-coaching{top:44%;left:auto;right:var(--gutter)}
+  .coach{height:min(70svh,700px);margin-top:110px}
+  .blob.b1{width:70vw}.blob.b2{width:60vw}
   .tagline{max-width:none}
   .hero-foot{flex-direction:column;align-items:flex-start;bottom:24px}
   .cred{text-align:left}
@@ -168,9 +184,10 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
   .immersive::before{background:linear-gradient(to top,rgba(40,10,8,.85),rgba(90,20,15,.35) 60%,rgba(0,0,0,.1))}
   .immersive{align-items:end;padding-bottom:72px}
 }
-@media (max-width:860px){ .hero{padding-bottom:210px} }
+@media (max-width:860px){ .hero{padding-bottom:190px} }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
+  .ribbon-track{transform:none}
   .js .reveal{opacity:1;transform:none}
 }
 </style>
@@ -181,7 +198,7 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
   <a class="mark" href="#top">Lucas<span>.</span></a>
   <nav class="nav-links" aria-label="Navigation principale">
     <a href="#coaching">Le coaching</a>
-    <a href="#notes">L'approche</a>
+    <a href="#notes">Les piliers</a>
     <a href="#rdv">Rendez-vous</a>
   </nav>
 </header>
@@ -189,8 +206,9 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
 <main id="top">
   <!-- 1. HERO -->
   <section class="hero" aria-label="Lucas Coaching">
-    <h1 class="hero-word" aria-label="Lucas Coaching"><span>Lucas</span><span>Coaching</span></h1>
-    <figure class="coach" style="margin:0">
+    <span class="blob b1" aria-hidden="true"></span><span class="blob b2" aria-hidden="true"></span>
+    <h1 class="hero-word" aria-label="Lucas Coaching"><span class="w-lucas" aria-hidden="true">Lucas</span><span class="w-coaching" aria-hidden="true">Coaching</span></h1>
+    <figure class="coach">
       <img src="assets/coach-hero.webp" alt="Lucas, coach sportif diplômé STAPS, bras croisés, souriant" width="1100" height="2895" fetchpriority="high">
     </figure>
     <div class="hero-foot">
@@ -204,18 +222,20 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
     </div>
   </section>
 
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><span>Force <i></i> Endurance <i></i> Mental <i></i> Mobilité <i></i> Nutrition <i></i> Discipline <i></i></span><span>Force <i></i> Endurance <i></i> Mental <i></i> Mobilité <i></i> Nutrition <i></i> Discipline <i></i></span></div></div>
+
   <!-- 2. LE COACHING -->
   <section class="coaching" id="coaching">
     <div class="wrap">
       <figure class="frame reveal" style="margin:0">
         <img src="assets/coach-track.webp" alt="Lucas sur la piste d'athlétisme, souriant après une séance" width="1000" height="1010" loading="lazy">
-        <figcaption>Sur la piste — séance de fractionné</figcaption>
+        <figcaption>Sur la piste, séance de fractionné</figcaption>
       </figure>
       <div class="reveal">
-        <p class="eyebrow"><b>—</b>&nbsp; Le coaching</p>
+        <p class="eyebrow"><b class="dot" aria-hidden="true"></b>Le coaching</p>
         <h2>On ne change pas seul. <em class="grad-text">On change accompagné.</em></h2>
-        <p>La motivation s'use. Ce qui reste, c'est <strong>un cadre, un regard, une personne qui ne lâche pas</strong>. Mon rôle : construire avec vous une méthode qui tient dans votre vraie vie — votre agenda, votre corps, votre histoire.</p>
-        <p>Bilan initial, programme sur mesure, ajustements chaque semaine. Rien de générique, tout est pensé pour vous — et pour durer.</p>
+        <p>La motivation s'use. Ce qui reste, c'est <strong>un cadre, un regard, une personne qui ne lâche pas</strong>. Mon rôle : construire avec vous une méthode qui tient dans votre vraie vie : votre agenda, votre corps, votre histoire.</p>
+        <p>Bilan initial, programme sur mesure, ajustements chaque semaine. Rien de générique, tout est pensé pour vous, et pour durer.</p>
         <dl class="facts">
           <div><dt>STAPS</dt><dd>Licence en sciences du sport</dd></div>
           <div><dt>1 : 1</dt><dd>Suivi individuel</dd></div>
@@ -230,26 +250,26 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
     <div class="wrap">
       <div class="notes-head reveal">
         <div>
-          <p class="eyebrow"><b>—</b>&nbsp; Les trois notes</p>
-          <h2 style="margin-top:24px">Un parfum qui <em>reste</em>.</h2>
+          <p class="eyebrow"><b class="dot" aria-hidden="true"></b>Les trois piliers</p>
+          <h2 style="margin-top:24px">Une course se gagne <em class="grad-text">sur trois fronts</em>.</h2>
         </div>
-        <p>Comme un grand parfum, une transformation se construit en trois notes. Chacune compte. Aucune ne suffit seule.</p>
+        <p>La tête qui décide, le cœur qui pousse, le fond qui tient la distance. Comme sur une piste, c'est l'alliance des trois qui fait franchir la ligne.</p>
       </div>
       <div class="notes-grid">
         <article class="note reveal">
           <span class="k">Tête</span>
-          <h3>L'élan des premières semaines</h3>
-          <p>Des objectifs clairs, des victoires rapides et mesurables. Vous sentez la différence dès le premier mois — et l'envie de continuer s'installe.</p>
+          <h3>Le mental qui décide</h3>
+          <p>Des objectifs clairs, un plan que vous comprenez, des progrès mesurés chaque semaine. Quand on sait où l'on va, on ne rate plus une séance.</p>
         </article>
         <article class="note reveal">
           <span class="k">Cœur</span>
-          <h3>La relation qui vous porte</h3>
-          <p>Un coach qui vous connaît, vous écoute et s'adapte. Les jours sans, on ajuste. Les jours avec, on pousse. Vous n'êtes jamais seul.</p>
+          <h3>Le moteur qui pousse</h3>
+          <p>Un coach à vos côtés à chaque rep. Les jours sans, on ajuste la charge. Les jours avec, on va chercher le record. Vous n'êtes jamais seul.</p>
         </article>
         <article class="note reveal">
           <span class="k">Fond</span>
-          <h3>Ce qui demeure, pour toujours</h3>
-          <p>Des habitudes solides, un corps qui a appris, une autonomie gagnée. Le vrai résultat, c'est celui qui dure après le suivi.</p>
+          <h3>L'endurance qui dure</h3>
+          <p>Comme en course de fond : de la régularité, des habitudes solides, un corps qui encaisse. Le vrai résultat, c'est celui qui tient après le suivi.</p>
         </article>
       </div>
     </div>
@@ -260,15 +280,15 @@ footer{padding:40px var(--gutter) calc(env(safe-area-inset-bottom,0px) + 40px);d
     <img src="assets/coach-focus.webp" alt="" width="2000" height="1333" decoding="async" data-parallax>
     <blockquote class="reveal">
       <q>La discipline est la plus belle <em>preuve d'amour</em> que l'on se fait.</q>
-      <cite>— Lucas, coach</cite>
+      <cite>Lucas, coach sportif</cite>
     </blockquote>
   </section>
 
   <!-- 5. FINAL -->
   <section class="final" id="rdv">
     <div class="wrap reveal">
-      <p class="eyebrow"><b>—</b>&nbsp; Première étape</p>
-      <h2>Votre histoire<br><em class="grad-text">commence ici.</em></h2>
+      <p class="eyebrow"><b class="dot" aria-hidden="true"></b>Première étape</p>
+      <h2>Votre histoire<br><em>commence ici.</em></h2>
       <p>Réservez un premier échange offert de 30 minutes, ou remplissez le questionnaire : je reviens vers vous sous 24 h avec une première lecture de votre situation.</p>
       <div class="cta-row">
         <!-- Remplacer les liens ci-dessous par l'URL de prise de rendez-vous et celle du questionnaire -->
