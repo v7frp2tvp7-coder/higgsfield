@@ -149,12 +149,23 @@ section{padding-inline:var(--gutter)}
 .final p{max-width:48ch;margin:0 auto 56px;color:var(--ink-soft)}
 .final h2 em{color:var(--red)}
 .cta-row{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
-.pill{display:inline-flex;align-items:center;gap:12px;padding:20px 34px;border-radius:999px;text-decoration:none;
-  font:500 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s}
+.pill{display:inline-flex;align-items:center;gap:18px;padding:12px 28px 12px 12px;border-radius:999px;text-decoration:none;text-align:left;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .4s,border-color .4s}
+.pill .ico{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:50%}
+.pill .ico svg{width:22px;height:22px}
+.pill .txt{display:grid;gap:6px}
+.pill .lbl{font:500 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.pill .sub{font:italic 400 17px/1 var(--serif);opacity:.85}
+.pill .go{width:18px;height:18px;margin-left:6px;transition:transform .5s var(--ease)}
+.pill:hover .go{transform:translate(3px,-3px)}
 .pill.primary{background:var(--grad);color:#fff;box-shadow:0 18px 40px -18px rgba(195,23,46,.45)}
+.pill.primary .ico{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35)}
 .pill.primary:hover{transform:translateY(-2px);box-shadow:0 24px 46px -18px rgba(195,23,46,.55)}
-.pill.ghost{border:1px solid rgba(29,22,20,.22);color:var(--ink)}
-.pill.ghost:hover{border-color:var(--red);color:var(--red)}
+.pill.ghost{background:rgba(255,255,255,.55);border:1px solid rgba(195,23,46,.22);color:var(--ink);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.pill.ghost .ico{background:var(--grad);color:#fff}
+.pill.ghost .sub{color:var(--ink-soft);opacity:1}
+.pill.ghost:hover{transform:translateY(-2px);border-color:var(--red);background:rgba(255,255,255,.8)}
+@media (max-width:520px){.cta-row{flex-direction:column;align-items:stretch}.pill{width:100%;gap:14px}.pill .lbl{letter-spacing:.1em;font-size:12px}.pill .go{margin-left:auto}}
 .steps{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 36px;margin-top:48px;font-size:13px;color:var(--ink-soft)}
 .steps span::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-right:10px;vertical-align:middle}
 
@@ -213,7 +224,7 @@ footer{background:var(--ink);color:rgba(247,243,238,.7);padding:40px var(--gutte
     <div class="hero-foot">
       <div>
         <p class="tagline" style="margin:0 0 18px">Changeons <span class="grad-text">ensemble</span> votre vie.</p>
-        <a class="btn" href="#rdv">Réserver un appel
+        <a class="btn" href="https://calendly.com/lucas-procoach-martin/30min" target="_blank" rel="noopener">Réserver un appel
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
       </div>
@@ -290,11 +301,16 @@ footer{background:var(--ink);color:rgba(247,243,238,.7);padding:40px var(--gutte
       <h2>Votre histoire<br><em>commence ici.</em></h2>
       <p>Réservez un premier échange offert de 15 minutes, ou remplissez le questionnaire : je reviens vers vous sous 24 h avec une première lecture de votre situation.</p>
       <div class="cta-row">
-        <!-- Remplacer les liens ci-dessous par l'URL de prise de rendez-vous et celle du questionnaire -->
-        <a class="pill primary" id="cta-rdv" href="#rdv" data-href="URL_PRISE_DE_RDV">Prendre rendez-vous
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="pill primary" id="cta-rdv" href="https://calendly.com/lucas-procoach-martin/30min" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9.5 14.5l2 2 3.5-4"/></svg></span>
+          <span class="txt"><span class="lbl">Prendre rendez-vous</span><span class="sub">Appel offert de 15 min</span></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
-        <a class="pill ghost" id="cta-form" href="#rdv" data-href="URL_QUESTIONNAIRE">Remplir le questionnaire</a>
+        <a class="pill ghost" id="cta-form" href="https://forms.gle/ZSZDSzAgRYnjdjsK7" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/></svg></span>
+          <span class="txt"><span class="lbl">Remplir le questionnaire</span><span class="sub">Pour préparer notre échange</span></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
       </div>
       <div class="steps"><span>Appel découverte offert de 15 min</span><span>Bilan complet</span><span>Programme sur mesure</span></div>
     </div>
@@ -308,10 +324,6 @@ footer{background:var(--ink);color:rgba(247,243,238,.7);padding:40px var(--gutte
 
 <script>
 (function(){
-  // Liens rendez-vous / questionnaire : renseigner data-href avec les vraies URLs
-  document.querySelectorAll('[data-href]').forEach(function(a){
-    var u=a.getAttribute('data-href'); if(/^https?:\/\//.test(u)){a.href=u;a.target='_blank';a.rel='noopener';}
-  });
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(!('IntersectionObserver' in window)||reduce) return;
   document.documentElement.classList.add('js');
