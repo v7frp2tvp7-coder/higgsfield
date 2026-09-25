@@ -85,10 +85,6 @@ em{font-style:italic}
 .tagline .grad-text{font-style:italic}
 .cred{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);text-align:right;line-height:1.9}
 
-.btn{display:inline-flex;align-items:center;gap:14px;text-decoration:none;font:500 13px/1 var(--sans);
-  letter-spacing:.16em;text-transform:uppercase;padding:16px 0;border-bottom:1px solid currentColor;transition:gap .5s var(--ease),color .4s}
-.btn:hover{gap:22px;color:var(--red)}
-.btn svg{width:18px;height:18px}
 
 /* RUBAN */
 .ribbon{background:var(--grad);color:var(--bone);overflow:hidden;padding-block:22px;padding-inline:0}
@@ -224,8 +220,10 @@ footer{background:var(--ink);color:rgba(247,243,238,.7);padding:40px var(--gutte
     <div class="hero-foot">
       <div>
         <p class="tagline" style="margin:0 0 18px">Changeons <span class="grad-text">ensemble</span> votre vie.</p>
-        <a class="btn" href="https://calendly.com/lucas-procoach-martin/30min" target="_blank" rel="noopener">Réserver un appel
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <a class="pill primary" id="hero-rdv" href="https://calendly.com/lucas-procoach-martin/30min" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9.5 14.5l2 2 3.5-4"/></svg></span>
+          <span class="txt"><span class="lbl">Réserver un appel</span><span class="sub">Offert, 15 min</span></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
       </div>
       <p class="cred" style="margin:0">Coach sportif diplômé STAPS<br>Accompagnement individuel</p>
